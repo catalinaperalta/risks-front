@@ -46,6 +46,22 @@
 			</li>
 		</ul>
 	</div>
+	<div class="row">
+		<h3>Additional Risk Field: CarAge</h3>
+		<br>
+		<ul>
+			<li *ngFor="let field of risk_field">
+				<strong>Field Name:</strong><i> {{ field.name }}</i> 
+				<br>
+				Description: {{ field.description}}
+				<br>
+				Field Type: {{ field.field_type }}
+				<br>
+				Current Value: {{ field.value }}
+				<br>
+			</li>
+		</ul>
+	</div>
 </div>
 
 <div class="container">
@@ -67,7 +83,7 @@
 		<small id="risk_amount_help" class="form-text text-muted">*required</small>
 	</div>
 	<div *ngIf="show_div">
-		<div ng-repeat-start="item in new_field_count">
+		<!-- <div ng-repeat-start="item in new_field_count"> -->
 			<h4>Add more fields:</h4>
 			<div class="form-group">
 				<label for="risk_field_name">Field Name</label>
@@ -93,7 +109,7 @@
 				<input type="text" class="form-control" id="risk_name" placeholder="John Smith">
 				<small id="risk_name_help" class="form-text text-muted">*required</small>
 			</div>
-		</div ng-repeat-end>
+		<!-- </div ng-repeat-end> -->
 	</div>
 	<button class="btn btn-primary" (click)="checkAddField()">Add Field +</button>
 	<button type="submit" class="btn btn-primary" disabled>Submit</button>

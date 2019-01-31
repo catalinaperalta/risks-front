@@ -20,6 +20,7 @@ export class AppComponent {
   constructor(private api: ApiService) {
   	this.getInsurers();
     this.getRisks();
+    this.getRiskField("CarAge")
   }
 
   checkAddField = () => {
@@ -73,8 +74,8 @@ export class AppComponent {
       });
   }
 
-  getRiskField = (id) => {
-    this.api.getSingleRiskField(id).subscribe(
+  getRiskField = (param) => {
+    this.api.getSingleRiskField(param).subscribe(
       data => {
         this.risk_field = data;
         console.log(data)

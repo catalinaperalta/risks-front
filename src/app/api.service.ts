@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
 
-	baseurl = "http://localhost:8000";
+	baseurl_dev = "http://localhost:8000";
+	baseurl = "https://peaceful-lake-83171.herokuapp.com";
 	url = "";
 	
 	httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
