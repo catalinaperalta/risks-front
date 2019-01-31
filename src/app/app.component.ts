@@ -9,25 +9,38 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'front';
-
-  risk = {}
-  risks = [{name: 'Car', amount: 10000}];
-  risk_fields = [{name: 'Car', amount: 10000}];
-  risk_field = [{name: 'Car', amount: 10000}];
-  insurers = [{name: 'Car', amount: 10000}];
+  show_div = false;
+  stay_visible = false;
+  new_field_count = 0;
+  risk_fields = [];
+  risk_field = [];
+  insurers = [];
+  risks = [];
 
   constructor(private api: ApiService) {
   	this.getInsurers();
     this.getRisks();
-    /*this.getRiskFields();*/
+  }
 
-    /*console.log(this.risks)*/
+  checkAddField = () => {
+    this.new_field_count += 1;
+    
+    if (this.stay_visible)
+    {
+      return this.show_div;
+    }
+    else 
+    {
+      this.stay_visible = true;
+     this.show_div = !this.show_div;
+     return this.show_div;
+    }
+     
+  }
 
-    /*this.risk["prev"] = risk[0].risk.id;
-    @Component.angular.forEach(this.risk_fields, function(value, key) {
-      if (value.risk.id == this.risk["prev"])
-      this.risk.push(key + ': ' + value);
-    }, log)*/;
+  checkFieldType = (select_choice) => {
+    if (select_choice == 'options-1')
+      return true;
   }
 
   getInsurers = () => {
